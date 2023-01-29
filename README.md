@@ -1,5 +1,5 @@
 # Ego-Motion Estimation
-This repository contains Object Tracking and Environment Modelling Projects. These are applicable in domains like **robotic perception**, **autonomous driving** and **advance driver assistance system applications**. These projects are ongoing, and several other might be added and the existing ones might be enhanced in the future. Hope that the community finds these projects useful :)
+This repository contains Object Tracking and Environment Modelling Projects. These are applicable in domains like **robotic perception**, **autonomous driving** and **advance driver assistance system applications**. These projects are ongoing, and several other might be added and the existing ones might be enhanced in the future.
 
 ## Projects
 

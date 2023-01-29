@@ -1,5 +1,5 @@
 # Ego-motion Estimation by Radar Sensor - RadarScenes dataset
-[detailed design document link](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/1_radar_ego_motion_polar.pdf)
+[detailed design document link](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/1_radar_static_environment_representation.pdf)
 
 
 ## Introduction
