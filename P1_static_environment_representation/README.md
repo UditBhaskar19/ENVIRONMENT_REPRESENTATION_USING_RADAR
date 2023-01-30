@@ -82,7 +82,7 @@ The below animation is a brief sequence of radar frames. It can be observed that
 
 ### 5. Sequence Diagram <a name="t5"></a>
 The below diagram explains the temporal sequence of the grid cell state estimation and fusion.<br>
-![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_seq_diagram.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/seq_diag.PNG)
 
 <br>
 
