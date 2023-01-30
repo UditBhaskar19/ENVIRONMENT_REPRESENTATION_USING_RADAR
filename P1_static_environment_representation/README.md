@@ -3,39 +3,6 @@
 
 
 
-$$
-\begin{pmatrix}
-   x_1 \\ 
-   y_1
-\end{pmatrix},
-\begin{pmatrix}
-   x_2 \\ 
-   y_2
-\end{pmatrix} ... 
-\begin{pmatrix}
-   x_n \\ 
-   y_n
-\end{pmatrix} \sim Normal \ (
-   \begin{pmatrix}
-   x_k \\ 
-   y_k
-   \end{pmatrix},
-   \Sigma_k)
-$$
-
-$$
-dist =
-\begin{pmatrix}
-   x_j - x_k \\ 
-   y_j - x_k
-\end{pmatrix}
-$$
-$$
-p_jk = exp( -dist^T \Sigma_k_{-1} dist )
-$$
-
-
-
 ## Introduction
 **Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like clutter, missed-detection and sparsity of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling; After which the upsampled data is represented in the form of a Regular Grid. Simmilar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each valid grid cells is characterized by particle position and log-odd value **$(x_m, y_m, l_m)$**. It turns out this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment by computing free-space and road boundary points using basic methods. More sophisticated methods for these application can be designed which will be a part of a different project.  
 
@@ -56,24 +23,32 @@ $$
 
 <br>
 
+
+
 ### 1. Sensor Setup and Layout <a name="t1"></a>
 In this project [RadarScenes](https://radar-scenes.com/) dataset is used for validating and generating results. The measurements are not synchronized and the sensor layout doesnot have a full 360&deg; coverage. Nonetheless the dataset is considered here because it is one of the few datasets publickly available that has raw radar point cloud measurements.
 <br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/0_sensor_setups.PNG)
+
 <br>
 
 [Back to TOC](#t0)
 <br>
+
+
 
 
 ### 2. Inputs Considered and Required Outputs <a name="t2"></a>
 The inputs are the radar measurements in polar coordinates.
 <br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/1_inputs_outputs.PNG)
+
 <br>
 
 [Back to TOC](#t0)
 <br>
+
+
 
 
 ### 3. Radar Scan Visualization in Ego Vehicle frame <a name="t3"></a>
@@ -81,10 +56,13 @@ The below animation is a brief sequence of radar frames. It can be observed that
 
 [Animation for longer sequence of radar frames](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/radar_range_rate.gif)
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/radar_range_rate4.gif)
+
 <br>
 
 [Back to TOC](#t0)
 <br>
+
+
 
 
 ### 4. High Level Design <a name="t4"></a>
@@ -92,19 +70,26 @@ The below animation is a brief sequence of radar frames. It can be observed that
    - **Temporal Allignment** : Since each of the radar has its own grid state estimator, and the radars are operating asynchronously, before grid fusion step we have to represent the cell states for all the radars in the same reference frame. This allignment is achieved in the Temporal Allignment block where we do ego-motion compensation for all the cell states <br>
    - **Grid Fusion** : Finally we combine the local grid state estimates into a single grid <br><br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_architecture.PNG)
+
 <br>
 
 [Back to TOC](#t0)
 <br>
+
+
 
 
 ### 5. Sequence Diagram <a name="t5"></a>
 The below diagram explains the temporal sequence of the grid cell state estimation and fusion.<br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_seq_diagram.PNG)
+
 <br>
 
 [Back to TOC](#t0)
 <br>
+
+
+
 
 ### 6. Module Architecture <a name="t6"></a>
 The components in each of the Radar $i$ [Static Environment Grid Estimation](#t41) $( i={1,2,3,4} )$ block is as follows
@@ -147,7 +132,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    \end{pmatrix}
    $$
 
-   $$p_{jk} = exp(  -\dfrac{dist^T \Sigma_k^{-1} dist}{0.5}   )$$
+   $$p_{jk} = exp(  -\dfrac{dist^T \Sigma_k^{-1} dist}{2}   )$$
 
 
 
