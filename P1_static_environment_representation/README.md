@@ -12,7 +12,7 @@
    - [Sensor Setup and Layout](#t1)
    - [Inputs Considered and Required Outputs](#t2)
    - [Radar Scan Visualization in Ego Vehicle frame](#t3)
-   - [High Level Architecture](#t4)
+   - [High Level Design](#t4)
    - [Analysis](#t5)
    - [Results, Plots and Some Observations regarding Plots](#t6)
    - [Conclusion](#t7)
@@ -50,7 +50,7 @@ The below animation is a brief sequence of radar frames. It can be observed that
 <br>
 
 
-### 4. High Level Architecture <a name="t4"></a>
+### 4. High Level Design <a name="t4"></a>
    - **Stationary Measurement Identification** : The stationary measurements are identified. First the predicted range-rate for stationarity case at each measurement (x,y) location is computed. If the measurement range-rate and the predicted range-rate is 'close' within a certain margin, then that measurement is considered for further processing. It may happen that the wheel speed based ego-motion is corrupted since the wheel is prone to slipping and skidding, in such cases the estimated ego-motion in the previous time t-1 is utilized for computing the predicted range-rate.<br>
    - **Clutter Removal by RANSAC** : After an preliminary selection of the stationary measurements, Random Sample Consensus (RANSAC) is used to remove clutter measurements.<br>
    - **Radar Ego-motion Computation** : Since radar gives only range-rate which is the radial component of the velocity vector ( NO orthogonal velocity component ) a full 3DOF ego motion is not possible using a single radar. Here we estimate translational radar ego-motion (vx, vy) using the method of Ordinary Least Squares.<br>
