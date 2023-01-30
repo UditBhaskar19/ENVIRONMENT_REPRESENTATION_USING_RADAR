@@ -104,7 +104,9 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
    - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. Samples with unique cell IDs are selected. If multiple samples has the same cell ID, the sample that has the largest weight is selected. The sample position and log-odds $(x_i, y_i, l_i)$ is passed as the output. Below are the key steps written formally for sampling and weight computation. Let $(x_k, y_k)$ be a measurement.<br>
 
-        - **for each measurement generate samples**
+        1. **for each measurement generate samples**
+        2. **compute probability (weight) for each samples**
+        3. **Compute log-odds**
 
 
    $$
@@ -126,8 +128,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
       \end{pmatrix},
       \Sigma_k )
    $$
-
-      - **Compute the probability (weight) for each samples**
+   
 
    $$
    dist =
