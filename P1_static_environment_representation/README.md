@@ -2,93 +2,6 @@
 [detailed design document link](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/1_radar_static_environment_representation.pdf)
 
 
-<br><br>
-
-
-$$
-T_{prev} =
-\begin{bmatrix}
-cos(&theta;_{t-1}^{loc}) &  -sin(&theta;_{t-1}^{loc})   &   px_{t-1}^{loc} \\
-sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
-
-
-$$
-T_{curr} =
-\begin{bmatrix}
-cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
-sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
-$$
-T = T_{curr}^{-1}T_{prev} = 
-\begin{bmatrix}
-R_{2x2} &  t_{2x1} \\
-O_{1x2} & 1
-\end{bmatrix}
-$$
-
-
-$$
-\begin{bmatrix}
-x_{pred}^i \\ 
-y_{pred}^i
-\end{bmatrix} = 
-R_{2x2} * 
-\begin{bmatrix} x_{prev}^i \\ 
-y_{prev}^i \end{bmatrix} + t_{2x1}
-$$
-
-
-
-<br><br>
-
-
-
-$$
-T_{prev} =
-\begin{pmatrix}
-cos(&theta;_{t-1}^{loc}) &  -sin(&theta;_{t-1}^{loc})   &   px_{t-1}^{loc} \\
-sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
-0 & 0 & 1
-\end{pmatrix}
-$$
-
-
-
-$$
-T_{curr} =
-\begin{pmatrix}
-cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
-sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
-0 & 0 & 1
-\end{pmatrix}
-$$
-
-$$
-T = T_{curr}^{-1}T_{prev} = 
-\begin{pmatrix}
-R_{2x2} &  t_{2x1} \\
-O_{1x2} & 1
-\end{pmatrix}
-$$
-
-
-$$
-\begin{pmatrix}
-x_{pred}^i \\ 
-y_{pred}^i
-\end{pmatrix} = 
-R_{2x2} * 
-\begin{pmatrix} x_{prev}^i \\ 
-y_{prev}^i \end{pmatrix} + t_{2x1}
-$$
-
 
 ## Introduction
 **Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like clutter, missed-detection and sparsity of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling; After which the upsampled data is represented in the form of a Regular Grid. Simmilar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each valid grid cells is characterized by particle position and log-odd value **$(x_m, y_m, l_m)$**. It turns out this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment by computing free-space and road boundary points using basic methods. More sophisticated methods for these application can be designed which will be a part of a different project.  
@@ -214,9 +127,14 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    <br> 
    - **Update Grid State** : The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are gated , not gated , inside active sensor FOV or outside active sensor FOV. The state update equations are listed below.<br>
         1. **Un-Gated Measurement Grid Cell IDs (Initialize new Grid Cell States)** <br>
+
         $$x_{upd}^i = x_{meas}^i$$
+
         $$y_{upd}^i = y_{meas}^i$$
-        $$l_{upd}^i = a_0 * l_{meas}^i$$  <br>
+
+        $$l_{upd}^i = a_0 * l_{meas}^i$$
+
+        <br>
         2. **Gated Grid Cell IDs** <br>
             &nbsp;&nbsp;&nbsp;       $x_{upd}^i = w_x * x_{meas}^i + ( 1 - w_x ) * x_{pred}^i$ <br>
             &nbsp;&nbsp;&nbsp;       $y_{upd}^i = w_y * y_{meas}^i + ( 1 - w_y ) * y_{pred}^i$ <br>
