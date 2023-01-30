@@ -26,7 +26,7 @@ sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
 $$
 
 $$
-T = T_{curr}^-1T_{prev} = 
+T = T_{curr}^{-1}T_{prev} = 
 \begin{bmatrix}
 R_{2x2} &  t_{2x1} \\
 O_{1x2} & 1
