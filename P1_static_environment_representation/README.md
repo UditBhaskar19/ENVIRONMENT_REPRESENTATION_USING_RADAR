@@ -3,8 +3,10 @@
 
 
 
+
 ## Introduction
-**Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like clutter, missed-detection and sparsity of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling; After which the upsampled data is represented in the form of a Regular Grid. Simmilar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each valid grid cells is characterized by particle position and log-odd value **$(x_m, y_m, l_m)$**. It turns out this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment by computing free-space and road boundary points using basic methods. More sophisticated methods for these application can be designed which will be a part of a different project.  
+**Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like clutter, missed-detection and sparsity of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling. After which the upsampled data is represented in the form of a Regular Grid. **The Grid is defined in the vehicle frame**. Simmilar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each valid grid cells is characterized by particle position and log-odd value **$(x_m, y_m, l_m)$**. It turns out that this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment by computing free-space and road boundary points using basic methods. More sophisticated methods for these application can be designed which will be a part of a different project.  
+
 
 
 
@@ -23,9 +25,10 @@
 
 
 
+
 ### 1. Sensor Setup and Layout <a name="t1"></a>
 In this project [RadarScenes](https://radar-scenes.com/) dataset is used for validating and generating results. The measurements are not synchronized and the sensor layout doesnot have a full 360&deg; coverage. Nonetheless the dataset is considered here because it is one of the few datasets publickly available that has raw radar point cloud measurements.
-<br>
+<br><br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/0_sensor_setups.PNG)
 
 <br>
@@ -142,8 +145,6 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    $$l_{jk} = log_e( \dfrac{ p_{jk} }{ 1 - p_{jk} } )$$
 
 
-
-
    - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ is predicted using ego vehicle localization information at time $(t-1)$ and $t$ so that the grid cell measurements at time $t$ and the previous cell states at time $(t-1)$ are in same ego vehicle frame at current time $t$. The ego vehicle localiztion info is w.r.t some arbitrary origin. The prediction equations for each grid cell $i$ are listed below.
 
    $$
@@ -220,6 +221,8 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 <br>
 
 
+
+
 ### 7. Grid Fusion <a name="t7"></a> 
 Finally the Local Grid Cell state estimates are fused. The cell $(x_i, y_i)$ coordinates are combined by weighted averaging. The log-odds are summed. Only the valid local grid cell states are combined. The invalid cell state has 0 log-odd value. The weight for the invalid states is considered to be 0.
 
@@ -238,6 +241,8 @@ $$
 $$
 \sum_{s=1}^{4} w_{radar_s} = 1
 $$
+
+
 
 
 
