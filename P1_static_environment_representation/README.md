@@ -52,11 +52,11 @@ $$
 
 $$
 T_{prev} =
-\begin{bmatrix}
+\begin{pmatrix}
 cos(&theta;_{t-1}^{loc}) &  -sin(&theta;_{t-1}^{loc})   &   px_{t-1}^{loc} \\
 sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
 0 & 0 & 1
-\end{bmatrix}
+\end{pmatrix}
 $$
 
 
