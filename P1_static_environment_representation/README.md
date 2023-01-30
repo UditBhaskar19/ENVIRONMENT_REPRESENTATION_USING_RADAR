@@ -22,7 +22,7 @@
 ### 1. Sensor Setup and Layout <a name="t1"></a>
 In this project [RadarScenes](https://radar-scenes.com/) dataset is used for validating and generating results. The measurements are not synchronized and the sensor layout doesnot have a full 360&deg; coverage. Nonetheless the dataset is considered here because it is one of the few datasets publickly available that has raw radar point cloud measurements.
 <br>
-![](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/readme_artifacts/0_sensor_setups.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/readme_artifacts/0_sensor_setups.PNG)
 <br>
 
 [Back to TOC](#t0)
@@ -30,9 +30,9 @@ In this project [RadarScenes](https://radar-scenes.com/) dataset is used for val
 
 
 ### 2. Inputs Considered and Required Outputs <a name="t2"></a>
-The inputs are the radar measurements in polar coordinates. A detailed summary of all the required inputs and the outputs are as follows.
+The inputs are the radar measurements in polar coordinates.
 <br>
-![](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/readme_artifacts/1_inputs_outputs.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/1_inputs_outputs.PNG)
 <br>
 
 [Back to TOC](#t0)
