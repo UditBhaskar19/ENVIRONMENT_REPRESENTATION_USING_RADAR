@@ -127,7 +127,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
       \Sigma_k )
    $$
 
-        - **Compute the probability (weight) for each samples**
+      - **Compute the probability (weight) for each samples**
 
    $$
    dist =
