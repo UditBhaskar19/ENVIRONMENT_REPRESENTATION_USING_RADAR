@@ -107,33 +107,35 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
         - **for each measurement generate samples**
 
 
-   $$
-   \begin{pmatrix}
-      x_1 \\ 
-      y_1
-   \end{pmatrix},
-   \begin{pmatrix}
-      x_2 \\ 
-      y_2
-   \end{pmatrix} ... 
-   \begin{pmatrix}
-      x_n \\ 
-      y_n
-   \end{pmatrix} \sim Normal \ ( 
+      $$
       \begin{pmatrix}
-      x_k \\ 
-      y_k
+         x_1 \\ 
+         y_1
       \end{pmatrix},
-      \Sigma_k )
-   $$
+      \begin{pmatrix}
+         x_2 \\ 
+         y_2
+      \end{pmatrix} ... 
+      \begin{pmatrix}
+         x_n \\ 
+         y_n
+      \end{pmatrix} \sim Normal \ ( 
+         \begin{pmatrix}
+         x_k \\ 
+         y_k
+         \end{pmatrix},
+         \Sigma_k )
+      $$
 
-   $$
-   dist =
-   \begin{pmatrix}
-      x_j - x_k \\ 
-      y_j - y_k
-   \end{pmatrix}
-   $$
+        - **Compute the probability (weight) for each samples**
+
+      $$
+      dist =
+      \begin{pmatrix}
+         x_j - x_k \\ 
+         y_j - y_k
+      \end{pmatrix}
+      $$
 
    $$p_{jk} = exp(  -\dfrac{dist^T \Sigma_k^{-1} dist}{2}   )$$
 
