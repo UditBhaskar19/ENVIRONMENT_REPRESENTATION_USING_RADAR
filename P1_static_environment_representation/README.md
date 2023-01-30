@@ -183,6 +183,13 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
             &nbsp;&nbsp;&nbsp;       $y_{upd}^i = y_{pred}^i$  <br>
             &nbsp;&nbsp;&nbsp;       $l_{upd}^i = a_3 * l_{pred}^i$  <br>
 
+   - **Update Grid State** : The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are gated , not gated , inside active sensor FOV or outside active sensor FOV. The state update equations are listed below.<br>
+        1. **Un-Gated Measurement Grid Cell IDs (Initialize new Grid Cell States)**
+        $$f(x) = \sqrt[3]{2x} + \sqrt{x-2}$$
+            $x_{upd}^i = x_{meas}^i$
+            $y_{upd}^i = y_{meas}^i$
+            $l_{upd}^i = &alpha; * l_{meas}^i$
+
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
 
