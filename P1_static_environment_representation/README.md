@@ -34,6 +34,14 @@ O_{1x2} & 1
 $$
 
 
+$$
+\begin{bmatrix}
+x_{pred}^i & y_{pred}^i
+\end{bmatrix} = 
+R_{2x2} * \begin{bmatrix} x_{prev}^i & y_{prev}^i \end{bmatrix} + t_{2x1}
+$$
+
+
 
 <br><br>
 
