@@ -23,6 +23,17 @@ sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
 $$
 
 
+
+$$
+T_{curr} =
+\begin{bmatrix}
+cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
+sin(&theta;_{t}^{loc}) &  &nbsp;cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+
 <br><br>
 
 
