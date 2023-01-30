@@ -78,8 +78,13 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    - **Convert Measurement from polar to cartesian** : The selected measurements are converted from polar to cartesian coordinates. <br>
    - **Coordinate Transformation Sensor frame to Vehicle Frame** : Here the measurements are coordinate transformed from sensor frame to vehicle frame. <br>
    - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. The samples are put in the grid cells and we pass the sample position and log-odds $(x_i, y_i, l_i)$ as the output. <br>
-   - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ are ego-motion compensated so that the grid cell measurements at time $t$ and the predicted cell states are in same ego vehicle frame at time $t$. <br> 
-   - **Update Grid State** : <br><br>
+   - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ is predicted using ego vehicle localization information at time $(t-1)$ and $t$ so that the grid cell measurements at time $t$ and the previous cell states at time $(t-1)$ are in same ego vehicle frame at current time $t$. <br> 
+   - **Update Grid State** : <br><br> The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are gated , not gated , inside active sensor FOV or outside active sensor FOV. The state update equations are listed below.<br>
+        - Un-Gated Measurement Grid Cell IDs (Initialize new Grid Cell States) <br>
+        - Gated Grid Cell IDs <br>
+        - Un-Gated Predicted Grid Cell within active sensor FOV <br>
+        - Un-Gated Predicted Grid Cell outside active sensor FOV <br>
+
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
 
