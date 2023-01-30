@@ -159,7 +159,9 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 ### 7. Grid Fusion <a name="t7"></a> 
 Finally the Local Grid Cell state estimates are fused. The cell $(x_i, y_i)$ coordinates are combined by weighted averaging. The log-odds are summed. Only the valid local grid cell states are combined. The invalid cell state has 0 log-odd value. The weight for the invalid states is considered to be 0.
 
-$$x_{fus}^i = w_{radar_1} * x_{radar_1}^i + w_{radar_2} * x_{radar_2}^i$$
+$$x_{fus}^i = w_{radar_1} * x_{radar_1}^i + w_{radar_2} * x_{radar_2}^i + w_{radar_3} * x_{radar_3}^i + w_{radar_4} * x_{radar_4}^i$$
+$$y_{fus}^i = w_{radar_1} * y_{radar_1}^i + w_{radar_2} * y_{radar_2}^i + w_{radar_3} * y_{radar_3}^i + w_{radar_4} * y_{radar_4}^i$$
+$$l_{fus}^i = l_{radar_1}^i + l_{radar_2}^i + l_{radar_3}^i + l_{radar_4}^i$$
 
 
 
