@@ -72,7 +72,14 @@ The below diagram explains the temporal sequence of the grid cell state estimati
 <br>
 
 ### 6. Module Architecture <a name="t6"></a>
-The components in each of the [Radar $i$ Static Environment Grid Estimation](#t41) $( i={1,2,3,4} )$ block is as follows
+The components in each of the Radar $i$ [Static Environment Grid Estimation](#t41) $( i={1,2,3,4} )$ block is as follows
+   - **Stationary Measurement Identification** : <br>
+   - **Clutter Removal by RANSAC** : <br>
+   - **Convert Measurement from polar to cartesian** : <br>
+   - **Coordinate Transformation Sensor frame to Vehicle Frame** : <br>
+   - **Compute Measurement Grid** : <br>
+   - **Predict Grid States** : <br>
+   - **Update Grid State** : <br><br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
 
