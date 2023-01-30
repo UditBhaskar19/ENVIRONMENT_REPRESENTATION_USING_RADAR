@@ -16,7 +16,7 @@ $$
 $$
 T_{prev} =
 \begin{bmatrix}
-cos(&theta;_{t-1}^loc) & 2 & 3 \\
+cos(&theta;_{t-1}^{loc}) & 2 & 3 \\
 4 & 5 & 6 \\
 7 & 8 & 9
 \end{bmatrix}
