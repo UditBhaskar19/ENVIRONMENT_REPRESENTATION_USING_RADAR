@@ -188,7 +188,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
         $$f(x) = \sqrt[3]{2x} + \sqrt{x-2}$$
         $$x_{upd}^i = x_{meas}^i$$
         $$y_{upd}^i = y_{meas}^i$$
-        $$l_{upd}^i = &alpha; * l_{meas}^i$$
+        $$l_{upd}^i = &alpha;_0 * l_{meas}^i$$
 
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
