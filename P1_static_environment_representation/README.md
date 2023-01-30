@@ -148,6 +148,7 @@ dist =
    y_j - x_k
 \end{pmatrix}
 $$
+
 $$
 p_jk = exp( -dist^T \Sigma_k_{-1} dist )
 $$
