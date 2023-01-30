@@ -81,9 +81,9 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ is predicted using ego vehicle localization information at time $(t-1)$ and $t$ so that the grid cell measurements at time $t$ and the previous cell states at time $(t-1)$ are in same ego vehicle frame at current time $t$. <br> 
    - **Update Grid State** : The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are gated , not gated , inside active sensor FOV or outside active sensor FOV. The state update equations are listed below.<br>
         1. **Un-Gated Measurement Grid Cell IDs (Initialize new Grid Cell States)** <br>
-               $x_{upd}^i = x_{meas}^i$  <br>
-               $y_{upd}^i = y_{meas}^i$  <br>
-               $l_{upd}^i = a_0 * l_{meas}^i$  <br>
+                   $x_{upd}^i = x_{meas}^i$  <br>
+                   $y_{upd}^i = y_{meas}^i$  <br>
+                   $l_{upd}^i = a_0 * l_{meas}^i$  <br>
         2. **Gated Grid Cell IDs** <br>
         3. **Un-Gated Predicted Grid Cell within active sensor FOV** <br>
         4. **Un-Gated Predicted Grid Cell outside active sensor FOV** <br>
