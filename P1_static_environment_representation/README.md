@@ -15,7 +15,7 @@ $$
 \begin{pmatrix}
    x_k \\ 
    y_k
-\end{pmatrix}
+\end{pmatrix} \sim Normal \; (\mu,\sigma^2)
 $$
 
 
