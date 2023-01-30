@@ -73,12 +73,12 @@ The below diagram explains the temporal sequence of the grid cell state estimati
 
 ### 6. Module Architecture <a name="t6"></a>
 The components in each of the Radar $i$ [Static Environment Grid Estimation](#t41) $( i={1,2,3,4} )$ block is as follows
-   - **Stationary Measurement Identification** : <br>
-   - **Clutter Removal by RANSAC** : <br>
-   - **Convert Measurement from polar to cartesian** : <br>
-   - **Coordinate Transformation Sensor frame to Vehicle Frame** : <br>
-   - **Compute Measurement Grid** : <br>
-   - **Predict Grid States** : <br>
+   - **Stationary Measurement Identification** : The stationary measurements are identified. First the predicted range-rate for stationarity case at each measurement (x,y) location is computed. If the measurement range-rate and the predicted range-rate is 'close' within a certain margin, then that measurement is considered for further processing. Vehicle odometry is utilized for computing the predicted range-rate. <br>
+   - **Clutter Removal by RANSAC** : After an preliminary selection of the stationary measurements, Random Sample Consensus (RANSAC) is used to remove clutter measurements. <br>
+   - **Convert Measurement from polar to cartesian** : The selected measurements are converted from polar to cartesian coordinates. <br>
+   - **Coordinate Transformation Sensor frame to Vehicle Frame** : Here the measurements are coordinate transformed from sensor frame to vehicle frame. <br>
+   - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. The samples are put in the grid cells and we pass the sample position and log-odds $(x_i, y_i, l_i)$ as the output. <br>
+   - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ are ego-motion compensated so that the grid cell measurements at time $t$ and the predicted cell states are in same ego vehicle frame at time $t$. <br> 
    - **Update Grid State** : <br><br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
