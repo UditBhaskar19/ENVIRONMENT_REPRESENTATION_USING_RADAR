@@ -51,7 +51,7 @@ The below animation is a brief sequence of radar frames. It can be observed that
 
 
 ### 4. High Level Design <a name="t4"></a>
-   - **Radar $i$ Static Environment Grid Estimation ($i={1,2,3,4}$)** :<br>
+   - **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** :<br>
    - **Temporal Allignment** :<br>
    - **Grid Fusion** :<br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_architecture.PNG)
