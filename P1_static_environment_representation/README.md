@@ -140,7 +140,7 @@ $$
    \Sigma_k)
 $$
 
-   **The probability for each sample is**
+
 $$
 dist =
 \begin{pmatrix}
@@ -150,7 +150,7 @@ dist =
 $$
 
 $$
-p_jk = exp( -dist^T \Sigma_k_{-1} dist )
+p_jk = -dist^T \Sigma_k_{-1} dist
 $$
 
 
