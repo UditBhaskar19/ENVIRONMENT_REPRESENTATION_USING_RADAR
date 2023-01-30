@@ -147,7 +147,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    \end{pmatrix}
    $$
 
-   $$p_{jk} = exp(-0.5 * dist_T)$$
+   $$p_{jk} = exp(-0.5 * dist^T)$$
 
 
 
