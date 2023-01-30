@@ -13,6 +13,16 @@ $$
 $$
 
 
+$$
+T_{prev} =
+\begin{bmatrix}
+cos(\theta_{t-1}^{loc) & 2 & 3 \\
+4 & 5 & 6 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+
 <br><br>
 
 
