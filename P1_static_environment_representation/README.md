@@ -125,14 +125,16 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
       y_k
       \end{pmatrix},
       \Sigma_k )
-   $$
+   $$                      
+   
+   <br>
 
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Compute probability (weight) for each samples**
 
    $$dist = \begin{pmatrix} x_j - x_k \\ y_j - y_k \end{pmatrix}$$
 
-   $$p_{jk} = exp(  -\dfrac{dist^T \Sigma_k^{-1} dist}{2}   )$$
+   $$p_{jk} = exp(  -\dfrac{dist^T \Sigma_k^{-1} dist}{2}   )$$ <br>
 
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Compute log-odds**
@@ -182,6 +184,8 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    \begin{pmatrix} x_{prev}^i \\ 
    y_{prev}^i \end{pmatrix} + t_{2x1}
    $$
+
+   <br>
 
    - **Update Grid State** : The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are gated , not gated , inside active sensor FOV or outside active sensor FOV.
 
