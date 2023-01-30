@@ -174,13 +174,17 @@ $$
 $$
 x_{fus}^i = \sum_{s=1}^{4} w_{radar_s} * x_{radar_s}^i
 $$
+
+$$
 y_{fus}^i = \sum_{s=1}^{4} w_{radar_s} * y_{radar_s}^i
+$$
+
 $$
 l_{fus}^i = \sum_{s=1}^{4} l_{radar_s}^i
 $$
 
 $$
-Note: sum_{s=1}^{4} w_{radar_s} = 1
+sum_{s=1}^{4} w_{radar_s} = 1
 $$
 
 
