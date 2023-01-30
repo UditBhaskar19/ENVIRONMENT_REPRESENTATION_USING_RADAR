@@ -130,8 +130,6 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
             &nbsp;&nbsp;&nbsp;       $x_{upd}^i = x_{meas}^i$ <br>
             &nbsp;&nbsp;&nbsp;       $y_{upd}^i = y_{meas}^i$  <br>
             &nbsp;&nbsp;&nbsp;       $l_{upd}^i = &alpha;_0 * l_{meas}^i$  <br>
-
-        <br>
         2. **Gated Grid Cell IDs** <br>
             &nbsp;&nbsp;&nbsp;       $x_{upd}^i = w_x * x_{meas}^i + ( 1 - w_x ) * x_{pred}^i$ <br>
             &nbsp;&nbsp;&nbsp;       $y_{upd}^i = w_y * y_{meas}^i + ( 1 - w_y ) * y_{pred}^i$ <br>
