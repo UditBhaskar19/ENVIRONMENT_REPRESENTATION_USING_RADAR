@@ -4,18 +4,18 @@
 
 
 $$
-\{\begin{pmatrix}
+\begin{pmatrix}
    x_1 \\ 
    y_1
- \end{pmatrix},
- \begin{pmatrix}
+\end{pmatrix},
+\begin{pmatrix}
    x_2 \\ 
    y_2
- \end{pmatrix}, ... 
- \begin{pmatrix}
+\end{pmatrix}, ... 
+\begin{pmatrix}
    x_k \\ 
    y_k
- \end{pmatrix}}\
+\end{pmatrix}
 $$
 
 
