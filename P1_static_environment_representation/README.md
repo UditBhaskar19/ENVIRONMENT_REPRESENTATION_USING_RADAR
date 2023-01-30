@@ -147,6 +147,8 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    \end{pmatrix}
    $$
 
+   $$X=0$$
+
 
 
 
