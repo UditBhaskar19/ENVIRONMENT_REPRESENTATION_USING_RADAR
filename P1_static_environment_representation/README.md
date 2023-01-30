@@ -4,14 +4,6 @@
 
 <br><br>
 
-$$
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{bmatrix}
-$$
-
 
 $$
 T_{prev} =
@@ -28,10 +20,19 @@ $$
 T_{curr} =
 \begin{bmatrix}
 cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
-sin(&theta;_{t}^{loc}) &  &nbsp;cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
+sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
 0 & 0 & 1
 \end{bmatrix}
 $$
+
+$$
+T = T_{curr}^-1T_{prev} = 
+\begin{bmatrix}
+R_{2x2} &  t_{2x1} \\
+O_{1x2} & 1
+\end{bmatrix}
+$$
+
 
 
 <br><br>
