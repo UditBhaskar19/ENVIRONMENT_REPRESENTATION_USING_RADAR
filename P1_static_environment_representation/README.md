@@ -189,19 +189,23 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
 
    The state update equations are listed below.<br>
-      1. **Un-Gated Measurement Grid Cell IDs**
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Un-Gated Measurement Grid Cell IDs**
             $$x_{upd}^i = x_{meas}^i$$
             $$y_{upd}^i = y_{meas}^i$$
             $$l_{upd}^i = a_{0} * l_{meas}^i$$
-      2. **Gated Grid Cell IDs**
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Gated Grid Cell IDs**
             $$x_{upd}^i = w_x * x_{meas}^i + ( 1 - w_x ) * x_{pred}^i$$
             $$y_{upd}^i = w_y * y_{meas}^i + ( 1 - w_y ) * y_{pred}^i$$
             $$l_{upd}^i = a_1 * l_{pred}^i + l_{meas}^i$$
-      3. **Un-Gated Predicted Grid Cell within active sensor FOV**
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Un-Gated Predicted Grid Cell within active sensor FOV**
             $$x_{upd}^i = x_{pred}^i$$
             $$y_{upd}^i = y_{pred}^i$$
             $$l_{upd}^i = a_2 * l_{pred}^i$$
-      4. **Un-Gated Predicted Grid Cell outside active sensor FOV**
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Un-Gated Predicted Grid Cell outside active sensor FOV**
             $$x_{upd}^i = x_{pred}^i$$
             $$y_{upd}^i = y_{pred}^i$$
             $$l_{upd}^i = a_3 * l_{pred}^i$$
