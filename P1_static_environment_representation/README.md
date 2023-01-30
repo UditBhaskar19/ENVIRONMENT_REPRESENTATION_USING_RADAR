@@ -136,6 +136,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
 
    $$p_{jk} = 0.5 + 0.5 * p_{jk}$$
+   
    $$l_{jk} = log_e( \dfrac{ p_{jk} }{ 1 - p_{jk} } )$$
 
 
