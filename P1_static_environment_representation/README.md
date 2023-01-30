@@ -2,6 +2,20 @@
 [detailed design document link](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/1_radar_static_environment_representation.pdf)
 
 
+<br><br>
+
+$$
+\begin{matrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{matrix}
+$$
+
+
+<br><br>
+
+
 ## Introduction
 **Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like clutter, missed-detection and sparsity of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling; After which the upsampled data is represented in the form of a Regular Grid. Simmilar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each valid grid cells is characterized by particle position and log-odd value **$(x_m, y_m, l_m)$**. It turns out this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment by computing free-space and road boundary points using basic methods. More sophisticated methods for these application can be designed which will be a part of a different project.  
 
@@ -146,14 +160,7 @@ Overall the presented approach for ego-motion estimation looks promising. Furthe
 
 <br>
 
-$matrix{2, 3 \cr 4 , 5}$
+
 
 <br>
 
-
-
-
-$$ {\left\lbrack \matrix{2 & 3 \cr 4 & 5} \right\rbrack} 
-* \left\lbrack \matrix{1 & 0 \cr 0 & 1} \right\rbrack
-= \left\lbrack \matrix{2 & 3 \cr 4 & 5} \right\rbrack
-$$
