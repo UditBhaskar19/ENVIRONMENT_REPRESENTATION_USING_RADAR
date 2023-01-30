@@ -107,7 +107,39 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    - **Coordinate Transformation Sensor frame to Vehicle Frame** : Here the measurements are coordinate transformed from sensor frame to vehicle frame. <br>
 
    - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. Samples with unique cell IDs are selected. If multiple samples has the same cell ID, the sample that has the largest weight is selected. The sample position and log-odds $(x_i, y_i, l_i)$ is passed as the output. Below are the key steps written formally for sampling and weight computation. Let $(x_k, y_k)$ be a measurement. <br>
+
    **Let us generate n samples**
+   $$
+   \begin{pmatrix}
+      x_1 \\ 
+      y_1
+   \end{pmatrix},
+   \begin{pmatrix}
+      x_2 \\ 
+      y_2
+   \end{pmatrix} ... 
+   \begin{pmatrix}
+      x_n \\ 
+      y_n
+   \end{pmatrix} \sim Normal \ (
+      \begin{pmatrix}
+      x_k \\ 
+      y_k
+      \end{pmatrix},
+      \Sigma_k)
+   $$
+
+   **The probability for each sample is**
+   $$
+   dist =
+   \begin{pmatrix}
+      x_j - x_k \\ 
+      y_j - x_k
+   \end{pmatrix}
+   $$
+   $$
+   p_jk = exp( -dist^T \Sigma_k_{-1} dist )
+   $$
 
 
 
