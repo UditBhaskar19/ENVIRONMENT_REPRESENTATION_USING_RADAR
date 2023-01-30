@@ -13,9 +13,11 @@
    - [Inputs Considered and Required Outputs](#t2)
    - [Radar Scan Visualization in Ego Vehicle frame](#t3)
    - [High Level Design](#t4)
-   - [Analysis](#t5)
-   - [Results, Plots and Some Observations regarding Plots](#t6)
-   - [Conclusion](#t7)
+   - [Sequence Diagram](#t5)
+   - [Module Architecture](#t6)
+   - [Analysis](#t7)
+   - [Results, Plots and Some Observations regarding Plots](#t8)
+   - [Conclusion](#t9)
 
 <br>
 
@@ -40,7 +42,7 @@ The inputs are the radar measurements in polar coordinates.
 
 
 ### 3. Radar Scan Visualization in Ego Vehicle frame <a name="t3"></a>
-The below animation is a brief sequence of radar frames. It can be observed that most of the range-rate is pointed radially towards the radar location. These arrows corrospond to the stationary measurements. The arrows that points away from the sensor location or has length that appears to be of drastically different size corrosponds to measurements from dynamic objects. In this project we use the stationary measuremnets. A method to for selecting stationary measurements has been discussed in this [repo](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/tree/main/2_egomotion_radar_polar)
+The below animation is a brief sequence of radar frames. It can be observed that most of the range-rate is pointed radially towards the radar location. These arrows corrospond to the stationary measurements. The arrows that points away from the sensor location or has length that appears to be of drastically different size corrosponds to measurements from dynamic objects. In this project we use the stationary measuremnets. A method for selecting stationary measurements has been discussed in this [repo](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/tree/main/2_egomotion_radar_polar)
 
 [Animation for longer sequence of radar frames](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/radar_range_rate.gif)
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/radar_range_rate4.gif)
@@ -51,15 +53,20 @@ The below animation is a brief sequence of radar frames. It can be observed that
 
 
 ### 4. High Level Design <a name="t4"></a>
-   - **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** :<br>
-   - **Temporal Allignment** :<br>
-   - **Grid Fusion** :<br>
+   - **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** : A list of valid grid cells are estimated locally corrosponding to each of the radars. Depending on the sensor internal and mounting parameters, a part of the environment might be detected more accurately by one sensor, than the other. In such cases it was found that estimating the cell states locally, and then fusing them centrally gives a more consistent result.<br>
+   - **Temporal Allignment** : Since each of the radar has its own grid state estimator, and the radars are operating asynchronously, before grid fusion step we have to represent the cell states for all the radars in the same reference frame. This allignment is achieved in the Temporal Allignment block where we do ego-motion compensation for all the cell states <br>
+   - **Grid Fusion** : Finally we combine the local grid state estimates into a single grid <br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_architecture.PNG)
 <br>
 
+
+### 5. Sequence Diagram <a name="t5"></a>
+The below diagram explains the temporal sequence of the grid cell state estimation and fusion.
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_seq_diagram.PNG)
 <br>
 
+### 6. Module Architecture <a name="t6"></a>
+The components in each of the **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** block is as follows
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
 
@@ -67,7 +74,7 @@ The below animation is a brief sequence of radar frames. It can be observed that
 <br>
 
 
-### 5. Analysis <a name="t5"></a>
+### 5. Analysis <a name="t7"></a>
 In this section some analysis is done to highlight the importance of two modules in the architecture: **Stationary Measurement Identification** & **Clutter Removal by RANSAC**
    - First, two estimation results are compared, one with and the other without the above two mentioned modules. The plot shows that the system would result in a total failure without these two modules.<br><br>
 ![](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/readme_artifacts/plot4.PNG)
@@ -87,7 +94,7 @@ Basically we are computing **$vr_{pred} = -( v_x * cos(theta_{meas}) + v_y * sin
 <br>
 
 
-### 6. Results , Plots and Some Observations regarding Plots ( RadarScenes - scene 105 ) <a name="t6"></a>
+### 6. Results , Plots and Some Observations regarding Plots ( RadarScenes - scene 105 ) <a name="t8"></a>
    - **Ego motion estimation output Plot** : The estimated yaw-rate seems to be more noisy than the estimated vx<br>
 ![](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/readme_artifacts/2_plots_results.PNG)
 
@@ -99,7 +106,7 @@ Basically we are computing **$vr_{pred} = -( v_x * cos(theta_{meas}) + v_y * sin
 <br>
 
 
-### 7. Conclusion <a name="t7"></a>
+### 7. Conclusion <a name="t9"></a>
 Overall the presented approach for ego-motion estimation looks promising. Further details can be found in the [document](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/1_radar_ego_motion_polar.pdf)
 <br>
 
