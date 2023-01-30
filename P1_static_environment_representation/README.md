@@ -20,7 +20,7 @@ $$
    x_k \\ 
    y_k
    \end{pmatrix},
-   \Sigma)
+   \Sigma_k)
 $$
 
 
