@@ -3,6 +3,23 @@
 
 
 
+$$
+{\begin{pmatrix}
+   x_1 \\ 
+   y_1
+ \end{pmatrix},
+ \begin{pmatrix}
+   x_2 \\ 
+   y_2
+ \end{pmatrix}, ... 
+ \begin{pmatrix}
+   x_k \\ 
+   y_k
+ \end{pmatrix}}
+$$
+
+
+
 ## Introduction
 **Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like clutter, missed-detection and sparsity of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling; After which the upsampled data is represented in the form of a Regular Grid. Simmilar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each valid grid cells is characterized by particle position and log-odd value **$(x_m, y_m, l_m)$**. It turns out this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment by computing free-space and road boundary points using basic methods. More sophisticated methods for these application can be designed which will be a part of a different project.  
 
@@ -84,7 +101,10 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
    - **Coordinate Transformation Sensor frame to Vehicle Frame** : Here the measurements are coordinate transformed from sensor frame to vehicle frame. <br>
 
-   - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. The samples are put in the grid cells and we pass the sample position and log-odds $(x_i, y_i, l_i)$ as the output. <br>
+   - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. Samples with unique cell IDs are selected. If multiple samples has the same cell ID, the sample that has the largest weight is selected. The sample position and log-odds $(x_i, y_i, l_i)$ is passed as the output. Below are the key steps written formally for sampling and weight computation. Let $(x_k, y_k)$ be a measurement. <br>
+   **Let us generate n samples**
+
+
 
    - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ is predicted using ego vehicle localization information at time $(t-1)$ and $t$ so that the grid cell measurements at time $t$ and the previous cell states at time $(t-1)$ are in same ego vehicle frame at current time $t$. The ego vehicle localiztion info is w.r.t some arbitrary origin. The prediction equations for each grid cell $i$ are listed below.
 
