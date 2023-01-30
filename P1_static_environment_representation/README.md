@@ -149,9 +149,7 @@ dist =
 \end{pmatrix}
 $$
 
-$$
-p_jk = -dist^T \Sigma_k_{-1} dist
-$$
+$$p_{jk} = -dist^T \Sigma_k_{-1} dist$$
 
 
 
