@@ -11,11 +11,16 @@ $$
 \begin{pmatrix}
    x_2 \\ 
    y_2
-\end{pmatrix}, ... 
+\end{pmatrix} ... 
 \begin{pmatrix}
+   x_n \\ 
+   y_n
+\end{pmatrix} \sim Normal \ (
+   \begin{pmatrix}
    x_k \\ 
    y_k
-\end{pmatrix} \sim Normal \ (\mu,\sigma^2)
+   \end{pmatrix},
+   \sigma^2)
 $$
 
 
