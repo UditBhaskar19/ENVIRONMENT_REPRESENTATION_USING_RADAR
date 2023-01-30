@@ -105,9 +105,6 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. Samples with unique cell IDs are selected. If multiple samples has the same cell ID, the sample that has the largest weight is selected. The sample position and log-odds $(x_i, y_i, l_i)$ is passed as the output. Below are the key steps written formally for sampling and weight computation. Let $(x_k, y_k)$ be a measurement.<br>
    
       1. **for each measurement generate samples**
-      2. **compute probability (weight) for each samples**
-      3. **Compute log-odds**
-
 
    $$
    \begin{pmatrix}
@@ -128,6 +125,12 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
       \end{pmatrix},
       \Sigma_k )
    $$
+
+      2. **compute probability (weight) for each samples**
+      3. **Compute log-odds**
+
+
+   
 
 
    $$
@@ -193,19 +196,19 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
 
    The state update equations are listed below.<br>
-        1. **Un-Gated Measurement Grid Cell IDs**
+      1. **Un-Gated Measurement Grid Cell IDs**
             $$x_{upd}^i = x_{meas}^i$$
             $$y_{upd}^i = y_{meas}^i$$
             $$l_{upd}^i = a_{0} * l_{meas}^i$$
-        2. **Gated Grid Cell IDs**
+      2. **Gated Grid Cell IDs**
             $$x_{upd}^i = w_x * x_{meas}^i + ( 1 - w_x ) * x_{pred}^i$$
             $$y_{upd}^i = w_y * y_{meas}^i + ( 1 - w_y ) * y_{pred}^i$$
             $$l_{upd}^i = a_1 * l_{pred}^i + l_{meas}^i$$
-        3. **Un-Gated Predicted Grid Cell within active sensor FOV**
+      3. **Un-Gated Predicted Grid Cell within active sensor FOV**
             $$x_{upd}^i = x_{pred}^i$$
             $$y_{upd}^i = y_{pred}^i$$
             $$l_{upd}^i = a_2 * l_{pred}^i$$
-        4. **Un-Gated Predicted Grid Cell outside active sensor FOV**
+      4. **Un-Gated Predicted Grid Cell outside active sensor FOV**
             $$x_{upd}^i = x_{pred}^i$$
             $$y_{upd}^i = y_{pred}^i$$
             $$l_{upd}^i = a_3 * l_{pred}^i$$
