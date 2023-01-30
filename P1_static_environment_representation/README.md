@@ -16,9 +16,10 @@
    - [High Level Design](#t4)
    - [Sequence Diagram](#t5)
    - [Module Architecture](#t6)
-   - [Analysis](#t7)
-   - [Results, Plots and Some Observations regarding Plots](#t8)
-   - [Conclusion](#t9)
+   - [Grid Fusion](#t7)
+   - [Analysis](#t8)
+   - [Results, Plots and Some Observations regarding Plots](#t9)
+   - [Conclusion](#t10)
 
 <br>
 
@@ -143,14 +144,24 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
             $$l_{upd}^i = a_3 * l_{pred}^i$$
 <br>
 
-![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_module_arc.PNG)
 <br>
 
 [Back to TOC](#t0)
 <br>
 
 
-### 5. Analysis <a name="t7"></a>
+### 7. Grid Fusion <a name="t7"></a>
+
+
+
+
+
+
+
+
+
+### 5. Analysis <a name="t8"></a>
 In this section some analysis is done to highlight the importance of two modules in the architecture: **Stationary Measurement Identification** & **Clutter Removal by RANSAC**
    - First, two estimation results are compared, one with and the other without the above two mentioned modules. The plot shows that the system would result in a total failure without these two modules.<br><br>
 ![](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/readme_artifacts/plot4.PNG)
@@ -170,7 +181,7 @@ Basically we are computing **$vr_{pred} = -( v_x * cos(theta_{meas}) + v_y * sin
 <br>
 
 
-### 6. Results , Plots and Some Observations regarding Plots ( RadarScenes - scene 105 ) <a name="t8"></a>
+### 6. Results , Plots and Some Observations regarding Plots ( RadarScenes - scene 105 ) <a name="t9"></a>
    - **Ego motion estimation output Plot** : The estimated yaw-rate seems to be more noisy than the estimated vx<br>
 ![](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/readme_artifacts/2_plots_results.PNG)
 
@@ -182,17 +193,8 @@ Basically we are computing **$vr_{pred} = -( v_x * cos(theta_{meas}) + v_y * sin
 <br>
 
 
-### 7. Conclusion <a name="t9"></a>
+### 7. Conclusion <a name="t10"></a>
 Overall the presented approach for ego-motion estimation looks promising. Further details can be found in the [document](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/1_radar_ego_motion_polar.pdf)
 <br>
 
 [Back to TOC](#t0)
-<br>
-
-
-<br>
-
-
-
-<br>
-
