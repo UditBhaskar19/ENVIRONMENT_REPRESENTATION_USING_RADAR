@@ -3,44 +3,44 @@
 
 
 
-         $$
-         T_{prev} =
-         \begin{pmatrix}
-         cos(&theta;_{t-1}^{loc}) &  -sin(&theta;_{t-1}^{loc})   &   px_{t-1}^{loc} \\
-         sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
-         0 & 0 & 1
-         \end{pmatrix}
-         $$
+$$
+T_{prev} =
+\begin{pmatrix}
+cos(&theta;_{t-1}^{loc}) &  -sin(&theta;_{t-1}^{loc})   &   px_{t-1}^{loc} \\
+sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
+0 & 0 & 1
+\end{pmatrix}
+$$
 
-         $$
-         T_{curr} =
-         \begin{pmatrix}
-         cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
-         sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
-         0 & 0 & 1
-         \end{pmatrix}
-         $$
+$$
+T_{curr} =
+\begin{pmatrix}
+cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
+sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
+0 & 0 & 1
+\end{pmatrix}
+$$
 
-         $$
-         T = T_{curr}^{-1}T_{prev} = 
-         \begin{pmatrix}
-         R_{2x2} &  t_{2x1} \\
-         O_{1x2} & 1
-         \end{pmatrix}
-         $$
+$$
+T = T_{curr}^{-1}T_{prev} = 
+\begin{pmatrix}
+R_{2x2} &  t_{2x1} \\
+O_{1x2} & 1
+\end{pmatrix}
+$$
 
 
-         $$
-         \begin{pmatrix}
-         x_{pred}^i \\ 
-         y_{pred}^i
-         \end{pmatrix} = 
-         R_{2x2} * 
-         \begin{pmatrix} x_{prev}^i \\ 
-         y_{prev}^i \end{pmatrix} + t_{2x1}
-         $$
-         
-         <br> 
+$$
+\begin{pmatrix}
+x_{pred}^i \\ 
+y_{pred}^i
+\end{pmatrix} = 
+R_{2x2} * 
+\begin{pmatrix} x_{prev}^i \\ 
+y_{prev}^i \end{pmatrix} + t_{2x1}
+$$
+
+<br> 
 
 
 
@@ -132,7 +132,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
         1. **Un-Gated Measurement Grid Cell IDs (Initialize new Grid Cell States)** <br>
             &nbsp;&nbsp;&nbsp;       $x_{upd}^i = x_{meas}^i$ <br>
             &nbsp;&nbsp;&nbsp;       $y_{upd}^i = y_{meas}^i$  <br>
-            &nbsp;&nbsp;&nbsp;       $l_{upd}^i = &alpha;_0 * l_{meas}^i$  <br>
+            &nbsp;&nbsp;&nbsp;       $l_{upd}^i = a_0 * l_{meas}^i$  <br>
         2. **Gated Grid Cell IDs** <br>
             &nbsp;&nbsp;&nbsp;       $x_{upd}^i = w_x * x_{meas}^i + ( 1 - w_x ) * x_{pred}^i$ <br>
             &nbsp;&nbsp;&nbsp;       $y_{upd}^i = w_y * y_{meas}^i + ( 1 - w_y ) * y_{pred}^i$ <br>
