@@ -128,42 +128,42 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
    - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ is predicted using ego vehicle localization information at time $(t-1)$ and $t$ so that the grid cell measurements at time $t$ and the previous cell states at time $(t-1)$ are in same ego vehicle frame at current time $t$. The ego vehicle localiztion info is w.r.t some arbitrary origin. The prediction equations for each grid cell $i$ are listed below.
 
-      $$
-      T_{prev} =
-      \begin{pmatrix}
-      cos(&theta;_{t-1}^{loc}) &  -sin(&theta;_{t-1}^{loc})   &   px_{t-1}^{loc} \\
-      sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
-      0 & 0 & 1
-      \end{pmatrix}
-      $$
+   $$
+   T_{prev} =
+   \begin{pmatrix}
+   cos(&theta;_{t-1}^{loc}) &  -sin(&theta;_{t-1}^{loc})   &   px_{t-1}^{loc} \\
+   sin(&theta;_{t-1}^{loc}) &   cos(&theta;_{t-1}^{loc})   &   py_{t-1}^{loc} \\
+   0 & 0 & 1
+   \end{pmatrix}
+   $$
 
-      $$
-      T_{curr} =
-      \begin{pmatrix}
-      cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
-      sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
-      0 & 0 & 1
-      \end{pmatrix}
-      $$
+   $$
+   T_{curr} =
+   \begin{pmatrix}
+   cos(&theta;_{t}^{loc}) &  -sin(&theta;_{t}^{loc})   &   px_{t}^{loc} \\
+   sin(&theta;_{t}^{loc}) &  cos(&theta;_{t}^{loc})   &   py_{t}^{loc} \\
+   0 & 0 & 1
+   \end{pmatrix}
+   $$
 
-      $$
-      T = T_{curr}^{-1}T_{prev} = 
-      \begin{pmatrix}
-      R_{2x2} &  t_{2x1} \\
-      O_{1x2} & 1
-      \end{pmatrix}
-      $$
+   $$
+   T = T_{curr}^{-1}T_{prev} = 
+   \begin{pmatrix}
+   R_{2x2} &  t_{2x1} \\
+   O_{1x2} & 1
+   \end{pmatrix}
+   $$
 
 
-      $$
-      \begin{pmatrix}
-      x_{pred}^i \\ 
-      y_{pred}^i
-      \end{pmatrix} = 
-      R_{2x2} * 
-      \begin{pmatrix} x_{prev}^i \\ 
-      y_{prev}^i \end{pmatrix} + t_{2x1}
-      $$
+   $$
+   \begin{pmatrix}
+   x_{pred}^i \\ 
+   y_{pred}^i
+   \end{pmatrix} = 
+   R_{2x2} * 
+   \begin{pmatrix} x_{prev}^i \\ 
+   y_{prev}^i \end{pmatrix} + t_{2x1}
+   $$
 
    - **Update Grid State** : The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are gated , not gated , inside active sensor FOV or outside active sensor FOV. The state update equations are listed below.<br>
         1. **Un-Gated Measurement Grid Cell IDs (Initialize new Grid Cell States)**
