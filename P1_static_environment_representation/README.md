@@ -127,11 +127,6 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    $$
 
    2. **compute probability (weight) for each samples**
-   3. **Compute log-odds**
-
-
-   
-
 
    $$
    dist =
@@ -143,6 +138,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
    $$p_{jk} = exp(  -\dfrac{dist^T \Sigma_k^{-1} dist}{2}   )$$
 
+   3. **Compute log-odds**
 
    $$p_{jk} = 0.5 + 0.5 * p_{jk}$$
 
