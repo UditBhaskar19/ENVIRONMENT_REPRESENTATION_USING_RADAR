@@ -139,6 +139,14 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
       \Sigma_k)
    $$
 
+   $$
+   dist =
+   \begin{pmatrix}
+      x_j - x_k \\ 
+      y_j - x_k
+   \end{pmatrix}
+   $$
+
 
 
 
