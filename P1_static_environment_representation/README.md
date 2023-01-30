@@ -141,7 +141,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
             $$x_{upd}^i = x_{pred}^i$$
             $$y_{upd}^i = y_{pred}^i$$
             $$l_{upd}^i = a_3 * l_{pred}^i$$
-<br><br><br>
+<br>
 
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
