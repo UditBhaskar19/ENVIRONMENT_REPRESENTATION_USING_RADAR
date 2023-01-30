@@ -53,20 +53,26 @@ The below animation is a brief sequence of radar frames. It can be observed that
 
 
 ### 4. High Level Design <a name="t4"></a>
-   - **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** : A list of valid grid cells are estimated locally corrosponding to each of the radars. Depending on the sensor internal and mounting parameters, a part of the environment might be detected more accurately by one sensor, than the other. In such cases it was found that estimating the cell states locally, and then fusing them centrally gives a more consistent result.<br>
+   - **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** <a name="t41"></a> : A list of valid grid cells are estimated locally corrosponding to each of the radars. Depending on the sensor internal and mounting parameters, a part of the environment might be detected more accurately by one sensor, than the other. In such cases it was found that estimating the cell states locally, and then fusing them centrally gives a more consistent result.<br>
    - **Temporal Allignment** : Since each of the radar has its own grid state estimator, and the radars are operating asynchronously, before grid fusion step we have to represent the cell states for all the radars in the same reference frame. This allignment is achieved in the Temporal Allignment block where we do ego-motion compensation for all the cell states <br>
-   - **Grid Fusion** : Finally we combine the local grid state estimates into a single grid <br><br><br>
+   - **Grid Fusion** : Finally we combine the local grid state estimates into a single grid <br><br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_architecture.PNG)
+<br>
+
+[Back to TOC](#t0)
 <br>
 
 
 ### 5. Sequence Diagram <a name="t5"></a>
-The below diagram explains the temporal sequence of the grid cell state estimation and fusion.
+The below diagram explains the temporal sequence of the grid cell state estimation and fusion.<br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_seq_diagram.PNG)
 <br>
 
+[Back to TOC](#t0)
+<br>
+
 ### 6. Module Architecture <a name="t6"></a>
-The components in each of the **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** block is as follows
+The components in each of the [Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$](#t41) block is as follows
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_mod_arc.PNG)
 <br>
 
