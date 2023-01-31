@@ -19,6 +19,7 @@
    - [Sequence Diagram](#t5)
    - [Module Architecture](#t6)
    - [Grid Fusion](#t7)
+   - [Visualization](#t8)
    - [Conclusion](#t10)
 
 <br>
@@ -247,9 +248,21 @@ $$
 
 
 
+### 8. Visualization <a name="t8"></a>
+In this section we show brief animations of the results.
+
+   1. Radar Dense Point Cloud by Grid based measurement filtering
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/radar_dense_point_cloud_300.gif)
+
+   2. Free Space computation
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/free_space_computation_radar_300.gif)
+
+   3. Road Boundary Point Extraction
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/road_boundary_300.gif)
 
 
-### 7. Conclusion <a name="t10"></a>
+
+### 9. Conclusion <a name="t10"></a>
 Overall the presented approach for ego-motion estimation looks promising. Further details can be found in the [document](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/1_radar_ego_motion_polar.pdf)
 <br>
 
