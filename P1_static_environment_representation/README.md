@@ -131,7 +131,13 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Compute probability (weight) for each samples**
 
-   $$dist = \begin{pmatrix} x_j - x_k \\ y_j - y_k \end{pmatrix}$$
+   $$
+   dist = 
+   \begin{pmatrix} 
+   x_j - x_k \\ 
+   y_j - y_k 
+   \end{pmatrix}
+   $$
 
    $$p_{jk} = exp(  -\dfrac{dist^T \Sigma_k^{-1} dist}{2}   )$$ <br>
 
