@@ -42,7 +42,6 @@ In this project [RadarScenes](https://radar-scenes.com/) dataset is used for val
 
 
 ### 2. Inputs Considered and Required Outputs <a name="t2"></a>
-<br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/1_inputs_outputs.PNG)
 
 <br>
