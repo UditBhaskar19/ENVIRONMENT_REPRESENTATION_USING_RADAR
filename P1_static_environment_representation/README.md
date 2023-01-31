@@ -200,7 +200,8 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
             $$x_{upd}^i = w_x * x_{meas}^i + ( 1 - w_x ) * x_{pred}^i$$
             $$y_{upd}^i = w_y * y_{meas}^i + ( 1 - w_y ) * y_{pred}^i$$
             $$l_{upd}^i = a_1 * l_{pred}^i + l_{meas}^i$$
-            $$0 <= w_x <= 1$$ <br>
+            $$0 <= w_x <= 1$$
+            $$0 <= w_y <= 1$$ <br>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Un-Gated Predicted Grid Cell within active sensor FOV**
             $$x_{upd}^i = x_{pred}^i$$
