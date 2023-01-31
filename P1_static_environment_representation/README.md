@@ -7,7 +7,7 @@
 
 
 ## Introduction
-**Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like clutter, missed-detection and sparsity of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling. After which the upsampled data is represented in the form of a Regular Grid. **The Grid is defined in the vehicle frame**. Simmilar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each valid grid cells is characterized by particle position and log-odd value **$(x_m, y_m, l_m)$**. It turns out that this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment, which are free-space and road boundary points using basic methods. More sophisticated methods for these applications can be designed which will be a part of a different project.  
+**Static environment modelling** is a key component of autonomous navigation. Unfortunately due to various **Radar** specific phenomologies like **clutter**, **missed-detection** and **sparsity** of the point cloud, the raw radar point cloud cannot be used like a lidar point cloud. So in this project the radar data is first upsampled by random sampling. After which the upsampled data is represented in the form of a Regular Grid. **The Grid is defined in the vehicle frame**. Similar to occupancy grid mapping, a log-odds update scheme with a degrading factor is applied for each of the valid grid cells. Here the valid grid cells are those cells whose log-odds value is above a certain threshold. Each of the valid grid cells are characterized by sample position and log-odd value **$(x_m, y_m, l_m)$**. It turns out that this scheme results in low log-odds value for false / clutter detections, hence those can be filtered out by thresholding the log-odds. Finally we show some applications of this modelled environment, which are free-space and road boundary points using basic methods. More sophisticated methods for these applications can be designed which will be a part of a different project.  
 
 
 
@@ -29,7 +29,7 @@
 
 
 ### 1. Sensor Setup and Layout <a name="t1"></a>
-In this project [RadarScenes](https://radar-scenes.com/) dataset is used for validating and generating results. The measurements are not synchronized and the sensor layout doesnot have a full 360&deg; coverage. Nonetheless the dataset is considered here because it is one of the few datasets publickly available that has raw radar point cloud measurements.
+In this project [RadarScenes](https://radar-scenes.com/) dataset is used for validating and generating results. The sensors are not synchronized and the sensor layout doesnot have a full 360&deg; coverage. Nonetheless the dataset is considered here because it is one of the few datasets publickly available that has raw radar point cloud measurements.
 <br><br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/0_sensor_setups.PNG)
 
@@ -42,7 +42,6 @@ In this project [RadarScenes](https://radar-scenes.com/) dataset is used for val
 
 
 ### 2. Inputs Considered and Required Outputs <a name="t2"></a>
-The inputs are the radar measurements in polar coordinates.
 <br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/1_inputs_outputs.PNG)
 
@@ -55,7 +54,7 @@ The inputs are the radar measurements in polar coordinates.
 
 
 ### 3. Radar Scan Visualization in Ego Vehicle frame <a name="t3"></a>
-The below animation is a brief sequence of radar frames. It can be observed that most of the range-rate is pointed radially towards the radar location. These arrows corrospond to the stationary measurements. The arrows that points away from the sensor location or has length that appears to be of drastically different size corrosponds to measurements from dynamic objects. In this project we use the stationary measuremnets. A method for selecting stationary measurements has been discussed in this [repo](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/tree/main/2_egomotion_radar_polar)
+The below animation is a brief sequence of radar frames. It can be observed that most of the range-rate is pointed along the line joining the radar and the measurement location (radial axis) . Most of these arrows corrospond to the stationary measurements. The arrows that appears to be of drastically different size corrosponds to measurements from dynamic objects. In this project we use the stationary measuremnets. A method for selecting stationary measurements has been discussed in this [repo](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/tree/main/2_egomotion_radar_polar)
 
 [Animation for longer sequence of radar frames](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/all_radar_meas_long_seq.gif)
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/all_radar_meas_short_seq.gif)
@@ -69,8 +68,8 @@ The below animation is a brief sequence of radar frames. It can be observed that
 
 
 ### 4. High Level Design <a name="t4"></a>
-   - **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** <a name="t41"></a> : A list of valid grid cells are estimated locally corrosponding to each of the radars. Depending on the sensor internal and mounting parameters, a part of the environment might be detected more accurately by one sensor, than the other. In such cases it was found that estimating the cell states locally, and then fusing them centrally gives a more consistent result.<br>
-   - **Temporal Allignment** : Since each of the radar has its own grid state estimator, and the radars are operating asynchronously, before grid fusion step we have to represent the cell states for all the radars in the same reference frame. This allignment is achieved in the Temporal Allignment block where we do ego-motion compensation for all the cell states <br>
+   - **Radar $i$ Static Environment Grid Estimation $( i={1,2,3,4} )$** <a name="t41"></a> : A list of valid grid cells are estimated locally corrosponding to each of the radars. Depending on the sensor internal and mounting parameters, a part of the environment might be detected more accurately by one sensor, than the other. In such cases it was found that estimating the cell states locally for each of the radars, and then fusing them centrally gives a more consistent result.<br>
+   - **Temporal Allignment** : Since each of the radar has its own grid state estimator, and the radars are operating asynchronously, before grid fusion step we have to represent the cell states of all the radars in the same reference frame. This allignment is achieved in the Temporal Allignment block where we do ego-motion compensation for all the cell states. This step can be optional if the sensors are synchronized. <br>
    - **Grid Fusion** : Finally we combine the local grid state estimates into a single grid <br><br>
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/4_architecture.PNG)
 
@@ -103,7 +102,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
    - **Coordinate Transformation Sensor frame to Vehicle Frame** : Here the measurements are coordinate transformed from sensor frame to vehicle frame. <br>
 
-   - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. Samples with unique cell IDs are selected. If multiple samples has the same cell ID, the sample that has the largest weight is selected. The sample position and log-odds $(x_i, y_i, l_i)$ is passed as the output. Below are the key steps written formally for sampling and weight computation. Let $(x_k, y_k)$ be a measurement.<br>
+   - **Compute Measurement Grid** : The measurements are first upsampled by random sampling, the probability (weight) and the corrosponding log-odds is computed for each of the samples. Samples with unique cell IDs are selected. If multiple samples have the same cell ID, the sample that has the largest weight is selected. The sample position and log-odds $(x_i, y_i, l_i)$ is passed as the output. Below are the key steps written formally for sampling and weight computation. Let $(x_k, y_k)$ be a measurement.<br>
    
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **For each measurement generate samples**
@@ -145,7 +144,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
    $$l_{jk} = log_e( \dfrac{ p_{jk} }{ 1 - p_{jk} } )$$
 
 
-   - **Predict Grid States** : Before we can do grid cell state update, the grid cell state in the previous time $(t-1)$ is predicted using ego vehicle localization information at time $(t-1)$ and $t$ so that the grid cell measurements at time $t$ and the previous cell states at time $(t-1)$ are in same ego vehicle frame at current time $t$. The ego vehicle localiztion info is w.r.t some arbitrary origin. The prediction equations for each grid cell $i$ are listed below.
+   - **Predict Grid States** : Before we can do grid cell state update, the grid cell state is predicted from the previous time $(t-1)$ to the current time $(t)$. Ego vehicle localization information at time $(t-1)$ & $(t)$ is utilized for cell state prediction. This prediction step ensures that the measurements at time $(t)$ and the previous cell states at time $(t-1)$ are in same ego vehicle frame at current time $(t)$. The ego vehicle localiztion info is w.r.t some arbitrary origin. The prediction equations for each grid cell $i$ are listed below.
 
    $$
    T_{prev} =
@@ -186,7 +185,7 @@ The components in each of the Radar $i$ [Static Environment Grid Estimation](#t4
 
    <br>
 
-   - **Update Grid State** : The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are gated , not gated , inside active sensor FOV or outside active sensor FOV.
+   - **Update Grid State** : The grid cell measurements and the predicted grid cell states are gated and updated. Since the grid is rectangular with uniformly sized cells. Each grid cell can be indexed like an image leading to efficient gating and state updates. different rules for state update is applied depending on whether the cells are **gated**, **not gated**, **inside active sensor FOV** or **outside active sensor FOV**.
 
    ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/update_rules.PNG)
 
@@ -250,7 +249,7 @@ $$
 
 
 ### 8. Visualization <a name="t8"></a>
-In this section we show brief animations of the results.
+In this section we show videos of the results.
 
    1. **Radar Dense Point Cloud by Grid based measurement filtering** <br>
    [Longer Animation Sequence Link](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/radar_dense_point_cloud_long_seq.gif)
