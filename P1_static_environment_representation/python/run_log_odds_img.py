@@ -30,10 +30,10 @@ frame_offset = 0
 n = num_samples
 
 grid_prop = grid_properties(
-        min_x = -50.0, 
+        min_x = -100.0, 
         max_x =  100.0, 
-        min_y = -50.0, 
-        max_y =  50.0, 
+        min_y = -100.0, 
+        max_y =  100.0, 
         dx = 0.2, 
         dy = 0.2)
 
