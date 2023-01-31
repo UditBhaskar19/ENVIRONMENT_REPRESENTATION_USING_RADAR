@@ -1,5 +1,7 @@
 # Static Environment Representation from Radar Measurements
-[detailed design document link](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/1_radar_static_environment_representation.pdf)
+[Detailed design document link](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/1_radar_static_environment_representation.pdf)
+[Python Code](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/python)
+[Result Videos](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/result_gifs)
 
 
 
@@ -20,7 +22,6 @@
    - [Module Architecture](#t6)
    - [Grid Fusion](#t7)
    - [Visualization](#t8)
-   - [Conclusion](#t9)
 
 <br>
 
@@ -260,10 +261,5 @@ In this section we show brief animations of the results.
    3. **Road Boundary Point Extraction**
    ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/road_boundary_300.gif)
 
-
-
-### 9. Conclusion <a name="t9"></a>
-Overall the presented approach for ego-motion estimation looks promising. Further details can be found in the [document](https://github.com/UditBhaskar19/EGO_MOTION_ESTIMATION/blob/main/2_egomotion_radar_polar/1_radar_ego_motion_polar.pdf)
-<br>
 
 [Back to TOC](#t0)
