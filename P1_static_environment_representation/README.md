@@ -253,12 +253,15 @@ $$
 In this section we show brief animations of the results.
 
    1. **Radar Dense Point Cloud by Grid based measurement filtering**
+   [Longer Sequence Animation](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/radar_dense_point_cloud_long_seq.gif)
    ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/radar_dense_point_cloud_short_seq.gif)
 
    2. **Free Space Computation**
+   [Longer Sequence Animation](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/free_space_computation_radar_long_seq.gif)
    ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/free_space_computation_radar_short_seq.gif)
 
    3. **Road Boundary Point Extraction**
+   [Longer Sequence Animation](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/readme_artifacts/road_boundary_long_seq.gif)
    ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_static_environment_representation/result_gifs/road_boundary_short_seq.gif)
 
 
