@@ -155,7 +155,7 @@ class animate(object):
         meas = np.stack([xcoord, ycoord], axis=-1)
         self.stationary_meas.set_offsets(meas)
         # self.stationary_meas.set_alpha(prob)
-        self.ax.set_title('Scene ' + str(self.scene) + ': Log-Odds Map w.r.t the ego vehicle at time ' + f'{timestamp_rad:.2f}' + ' sec', fontsize=14)
+        self.ax.set_title('Scene ' + str(self.scene) + ': Log-Odds Point Cloud at time ' + f'{timestamp_rad:.2f}' + ' sec', fontsize=14)
 
 
 

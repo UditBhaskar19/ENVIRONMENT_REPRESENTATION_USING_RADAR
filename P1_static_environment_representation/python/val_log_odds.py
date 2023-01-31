@@ -98,7 +98,7 @@ if __name__ == '__main__':
     prob, cellids, xcoord, ycoord = compute_meas_log_likelihood(
         meas_stationary_x,
         meas_stationary_y, 
-        0.5,
+        0.2,
         1000,
         GridCart)
 

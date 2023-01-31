@@ -129,7 +129,7 @@ def main(scene):
 
         ax.clear()
         ax.imshow(np.flip(prob_pred_img.transpose(), axis=0))
-        ax.set_title('Scene ' + str(scene) + ': Log-Odds Map w.r.t the ego vehicle at time ' + f'{timestamp_rad:.2f}' + ' sec', fontsize=14)
+        ax.set_title('Scene ' + str(scene) + ': Log-Odds Map at time ' + f'{timestamp_rad:.2f}' + ' sec', fontsize=14)
         plt.pause(0.01)
 
 # ===================================================================================================================
