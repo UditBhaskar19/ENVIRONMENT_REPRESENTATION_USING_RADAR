@@ -132,6 +132,10 @@ def main(scene):
         ax.set_title('Scene ' + str(scene) + ': Log-Odds Map at time ' + f'{timestamp_rad:.2f}' + ' sec', fontsize=14)
         plt.pause(0.01)
 
+        plt.show(block=False)
+        if not plt.get_fignums():
+            exit()
+
 # ===================================================================================================================
 
 if __name__ == '__main__':
