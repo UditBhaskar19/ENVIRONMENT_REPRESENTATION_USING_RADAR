@@ -33,6 +33,7 @@ The results are based on [NuScenes](https://www.nuscenes.org/) dataset.
    - [How the Grid actually helps us in efficient computation](#t3)
    - [Application 1 : Sensor FoV overlap determination](#t4)
    - [Application 2 : Computation of clutter density](#t5)
+   - [Conclusion](#t6)
 <br>
 
 
@@ -140,6 +141,15 @@ The formulas above helps in **mapping** a point $(x_{coord}, y_{coord})$ to a ce
 
    ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_grid_based_representation_for_radar_perception_functions/readme_artifacts/11_clutter_map.PNG)
 
+
+[Back to TOC](#t0)
+<br><br> 
+
+
+
+
+## 5. Conclusion <a name="t6"></a>
+The presented approach is suitable for 2D. In principle the above technique can be easily extented to 3D, but such 3D extensions lead to huge memory consumption. Hence for higher dimension alternative approachs ( like kd-tree ) needs to be explored. 
 
 [Back to TOC](#t0)
 <br><br> 
