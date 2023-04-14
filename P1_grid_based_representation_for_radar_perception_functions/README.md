@@ -17,7 +17,7 @@ The primary focus of this project is on defining and computing grid in a systema
    - **Computation of clutter intensity** at different regions in the sensor FoV grid empirically from measurements.
    <br>
 
-   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_grid_based_representation_for_radar_perception_functions/readme_artifacts/12_output.PNG)
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P1_grid_based_representation_for_radar_perception_functions/readme_artifacts/12_output.PNG) 
 
    <br> 
 
