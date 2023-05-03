@@ -1,6 +1,6 @@
 # Object Detection by Accumulaing and Clustering multiple radar frames
-[Python Code](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/python) <br>
-[Result Videos](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P1_static_environment_representation/result_gifs)
+[Python Code](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/python) <br>
+[Result Videos](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos)
 
 
 
@@ -8,7 +8,7 @@
 ## Introduction
 **Clustering** is a key component for radar based object tracking. When a radar returns multiple measurements from an object, it is necessary to group the measurements so that a unique id or a track can be initialized for that object. Here we employ **DBSCAN** clustering algorithm since it can identify clusters with elongated and non-convex shapes. Due to the sparcity of the radar measurements, DBSCAN often creates multiple clusters per object or erronously identify the object as clutter. Hence in this project we utilize not just the current radar frame, but a sequence of $k$ frames to perform clustering. We create a **accumulated frame buffer** with size $k$. In this buffer we maintain a history of $k-1$ frames and the current $k^{th}$ frame. These $k-1$ frames are extrapolated to the current timestep $t$ so that the entire accumulated frame buffer is temporally alligned. This **frame accumulation** would result in a dense point cloud of radar measurements which is subsequently taken as input to the DBSCAN Algorithm. Here the results are based on [NuScenes](https://www.nuscenes.org/) radar dataset and is shown for individual radars ( front and rear-left ). The concepts can be extended to multiple synchronous radars. Optionally in case we are performing clustering individually for each sensors, one may employ a cluster merge step to combine clusters from overlapped sensor FoVs.
 
-![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/0_output.png)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/0_output.png)
   
 
 
@@ -34,7 +34,7 @@
 ### 1. Sensor Setup and Layout <a name="t1"></a>
 In this project [NuScenes](https://www.nuscenes.org/) radar dataset is used for validating and generating results. The sensor layout has a full 360&deg; coverage.
 <br><br>
-![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/1_sensor_setup.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/1_sensor_setup.PNG)
 
 <br>
 
@@ -45,9 +45,9 @@ In this project [NuScenes](https://www.nuscenes.org/) radar dataset is used for 
 
 
 ### 2. Inputs and Outputs <a name="t2"></a>
-![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/2_inputs.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/2_inputs.PNG)
 <br><br> 
-![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/3_outputs.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/3_outputs.PNG)
 
 <br>
 
@@ -60,13 +60,16 @@ In this project [NuScenes](https://www.nuscenes.org/) radar dataset is used for 
 ### 3. Radar Scan Visualization in Ego Vehicle frame <a name="t3"></a>
 The below animation is a brief sequence of radar frames. It can be observed that many of the measurements are clutters. Also an object is often miss-detected and in some cases the object returns multiple measurements.
 
-![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/radar_scans_0103_short.gif)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0103_short.gif)
 
 **Long Sequence GIFs (appox 20 sec)**
-   - [scene-0655](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/radar_scans_0655_full.gif)   
-   - [scene-0103](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/radar_scans_0103_full.gif)   
-   - [scene-0796](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/radar_scans_0796_full.gif)   
-   - [scene-1077](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/radar_scans_1077_full.gif)    
+   - [scene-0655](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0655_full.gif)   
+
+   - [scene-0103](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0103_full.gif)   
+
+   - [scene-0796]https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0796_full.gif)   
+
+   - [scene-1077](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_1077_full.gif)    
 
 
 
@@ -81,7 +84,7 @@ The below animation is a brief sequence of radar frames. It can be observed that
 ### 4. Architecture <a name="t4"></a>
 <br> 
 
-![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/4_architecture.PNG) 
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/4_architecture.PNG) 
 <br><br> 
 
    - **Accumulate Radar $i$ multiple frames by sliding window $( i={1,2,3,4,5} )$** <a name="t41"></a> : Here we basically gather/accumulate multiple radar frames in sequence to increase the density of the radar point cloud. A circular queue data-struction can be implemented like a sliding window to store $k$ number of latest radar frames. <br><br> 
