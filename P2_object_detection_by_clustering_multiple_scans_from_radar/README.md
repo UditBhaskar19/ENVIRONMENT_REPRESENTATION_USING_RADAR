@@ -1,4 +1,4 @@
-# Object Detection by Accumulaing and Clustering multiple radar frames
+# Object Detection by Clustering multiple scans from Radar
 [Python Code](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/python) <br>
 [Result Videos](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos)
 
