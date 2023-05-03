@@ -386,10 +386,10 @@ In this section we show videos of the results. The long sequences are in the bel
 ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0103_short.gif)   
 
 - **scene-0796** 
-![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0796_short.gif)   
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0796_short.gif)   
 
 - **scene-1077** 
-![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_1077_short.gif)   
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_1077_short.gif)   
 
 <br>
 
