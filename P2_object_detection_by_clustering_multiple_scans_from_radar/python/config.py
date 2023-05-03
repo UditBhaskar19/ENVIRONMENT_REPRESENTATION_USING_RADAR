@@ -5,10 +5,9 @@
 import numpy as np
 
 # sensor csv data directory 
-root_dir_can = 'D:/PROJECTS/Radar_localization/github_projects/3_egomotion_radar_cartesian/sensor_data'
-root_dir_rad = 'D:/PROJECTS/Radar_localization/github_projects/3_egomotion_radar_cartesian/sensor_data'
-# root_dir_cam = 'D:/nuscenes_mini_cam_dataset'
-root_dir_cam = 'D:/github_desktop/temp/camera_data'
+root_dir_can = '../../Datasets/nuscenes_mini_radar'
+root_dir_rad = '../../Datasets/nuscenes_mini_radar'
+root_dir_cam = '../../Datasets/nuscenes_mini_camera'
 
 max_num_meas = 200
 meas_dim = 4
