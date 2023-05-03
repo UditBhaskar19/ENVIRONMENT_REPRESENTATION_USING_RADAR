@@ -65,7 +65,7 @@ The below animation is a brief sequence of radar frames. It can be observed that
 **Long Sequence GIFs (appox 20 sec)**
    - [scene-0655](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0655_full.gif)   
    - [scene-0103](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0103_full.gif)   
-   - [scene-0796]https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0796_full.gif)   
+   - [scene-0796](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0796_full.gif)   
    - [scene-1077](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_1077_full.gif)    
 
 
