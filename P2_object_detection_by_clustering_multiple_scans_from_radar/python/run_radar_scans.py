@@ -117,7 +117,7 @@ class animate(object):
             self.conf.mount_param[radar_id, 1], self.conf.mount_param[radar_id, 2])
 
 
-        print(radar_time_stamp)
+        print('frame_idx: ', t, ' time: ', radar_time_stamp)
 
         # --------------------------------------------------------------------------------------------------------------------------------------------------
 

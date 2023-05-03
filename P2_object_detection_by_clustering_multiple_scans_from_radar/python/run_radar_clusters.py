@@ -29,7 +29,7 @@ from lib_functions import create_projection_transformation, project_radar_on_cam
 # supported scenes : 0655, 0103, 0796, 1077, 1094
 # supported cameras : front, rear
 
-scene = 'scene-1094'
+scene = 'scene-1077'
 radar_front = 'front'
 camera_front = 'front'
 radar_rear = 'rear_left'
@@ -148,7 +148,7 @@ class animate(object):
         self.meas_clusters_front, meas_vector_front = perform_clustering(radar_front, self.trigger, self.meas_hist, self.meas_clusters_front)
         self.meas_clusters_rear, meas_vector_rear = perform_clustering(radar_rear, self.trigger, self.meas_hist, self.meas_clusters_rear)
 
-        print(self.timestamp_rad_prev)
+        print('frame_idx: ', t, ' time: ', self.timestamp_rad_prev)
 
         # --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -209,10 +209,10 @@ ax = set_plot_properties(ax)
 integrated_scans = animate(ax)
 
 
-# anim = FuncAnimation(fig, integrated_scans, frames=np.arange(conf.frame_summary.shape[0]), interval=0.002, repeat=False)
-# plt.show()
-
-
-anim = FuncAnimation(fig, integrated_scans, frames=np.arange(conf.frame_summary.shape[0] // 2 ), interval=1, repeat=False)
+anim = FuncAnimation(fig, integrated_scans, frames=np.arange(conf.frame_summary.shape[0]), interval=0.002, repeat=False)
 plt.show()
-anim.save('result_videos/radar_clusters_1094_full.gif', writer='pillow', fps=50)
+
+
+# anim = FuncAnimation(fig, integrated_scans, frames=np.arange(conf.frame_summary.shape[0] // 2 ), interval=1, repeat=False)
+# plt.show()
+# anim.save('result_videos/radar_clusters_1094_full.gif', writer='pillow', fps=50)
