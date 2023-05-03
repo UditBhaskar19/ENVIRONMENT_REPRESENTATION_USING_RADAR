@@ -64,11 +64,8 @@ The below animation is a brief sequence of radar frames. It can be observed that
 
 **Long Sequence GIFs (appox 20 sec)**
    - [scene-0655](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0655_full.gif)   
-
    - [scene-0103](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0103_full.gif)   
-
    - [scene-0796]https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_0796_full.gif)   
-
    - [scene-1077](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/radar_scans_1077_full.gif)    
 
 
@@ -88,14 +85,14 @@ The below animation is a brief sequence of radar frames. It can be observed that
 <br><br> 
 
    - **Accumulate Radar $i$ multiple frames by sliding window $( i={1,2,3,4,5} )$** <a name="t41"></a> : Here we basically gather/accumulate multiple radar frames in sequence to increase the density of the radar point cloud. A circular queue data-struction can be implemented like a sliding window to store $k$ number of latest radar frames. <br><br> 
-   ![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/5_frame_buffer.PNG)
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/5_frame_buffer.PNG)
    <br><br> 
 
    - **DBSCAN Clustering** : DBSCAN algorithm is used for clustering the accumulated radar measurements. DBSCAN is used here because of its ability to handle noise, identify clusters with varying shapes and densities, and automatically determine the number of clusters. <br><br> 
-   ![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/6_dbscan.PNG)
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/6_dbscan.PNG)
 
    - **Merge Clusters** : In case it is required to combine clusters from multiple radars, we need a cluster merging step. A visual depiction is shown below. <br><br>
-   ![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/9_cluster_merge.PNG)
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/9_cluster_merge.PNG)
 
 
 <br>
@@ -110,7 +107,7 @@ The below animation is a brief sequence of radar frames. It can be observed that
 The components in each of the [Accumulate Radar i multiple frames by sliding window](#t41) $( i={1,2,3,4} )$ block are as follows
 <br> 
 
-![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/7_acc_frames.PNG)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/7_acc_frames.PNG)
 <br><br> 
 
    - **Coordinate Transformation** : The measurements are in the sensor frame initially, which needs to be coordinate transformed to the vehicle frame. Let **$X_i = (p_x, p_y, v_x, v_y)$** and **$\Sigma_i$** be a **measurement vector** and **measurement noise covariance**, where $i ={1, 2, 3,..., m}$ indicates that a radar has returned $m$ number of measurements at current time $t$. Let the **mounting info** corrosponding to the radar be **$(X^{mount}, Y^{mount}, \alpha^{mount})$**. The equations for coordinate tranaformation for each of the **measurement $X_i$** and the **covariance $\Sigma_i$** are as follows: <br><br> 
@@ -185,7 +182,7 @@ The components in each of the [Accumulate Radar i multiple frames by sliding win
    - **Dynamic Measurement Selection** : Here we select only the dynamic measuremnts. 
    <br> 
 
-   ![](https://github.com/UditBhaskar19/temp/blob/main/readme_artifacts/8_sel_dyn_meas.PNG)
+   ![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/blob/main/P2_object_detection_by_clustering_multiple_scans_from_radar/readme_artifacts/8_sel_dyn_meas.PNG)
    <br><br> 
 
 
@@ -370,23 +367,23 @@ $$
 In this section we show videos of the results. The long sequences are in the below link. Here only short sequences are shown.
 
 - **Long Sequence GIFs of the clustering output (appox 20 sec)**
-   - [scene-0655](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_0655_long.gif)   
-   - [scene-0103](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_0103_long.gif)   
-   - [scene-0796](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_0796_long.gif)   
-   - [scene-1077](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_1077_long.gif)    
+   - [scene-0655](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0655_long.gif)   
+   - [scene-0103](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0103_long.gif)   
+   - [scene-0796](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0796_long.gif)   
+   - [scene-1077](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_1077_long.gif)    
 
 
 - **scene-0655** 
-![](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_0655_short.gif)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0655_short.gif)
 
 - **scene-0103** 
-![](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_0103_short.gif)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0103_short.gif)
 
 - **scene-0796** 
-![](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_0796_short.gif)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_0796_short.gif)
 
 - **scene-1077** 
-![](https://github.com/UditBhaskar19/temp/blob/main/result_videos/radar_clusters_1077_short.gif)
+![](https://github.com/UditBhaskar19/ENVIRONMENT_REPRESENTATION_USING_RADAR/tree/main/P2_object_detection_by_clustering_multiple_scans_from_radar/result_videos/radar_clusters_1077_short.gif)
 
 <br>
 
